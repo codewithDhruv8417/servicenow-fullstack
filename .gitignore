@@ -1,0 +1,13 @@
+# Backend
+
+servicenow-backend/target/
+servicenow-backend/*.log
+
+# VS Code
+
+.vscode/
+
+# OS files
+
+.DS_Store
+Thumbs.db
