@@ -10,11 +10,6 @@ let providers = [];
 let currentProviders = [];
 let selectedProvider = null;
 
-// =============================
-// API BASE
-// =============================
-const API_BASE = "https://servicenow-backend-88y5.onrender.com";
-
 
 // =============================
 // FETCH ALL PROVIDERS FROM BACKEND
