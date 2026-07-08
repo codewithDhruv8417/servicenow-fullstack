@@ -1,6 +1,7 @@
 package com.servicenow.backend.controller;
 
 import com.servicenow.backend.entity.Booking;
+import com.servicenow.backend.exception.ApiException;
 import com.servicenow.backend.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -42,7 +43,7 @@ public class BookingController {
         Booking booking = bookingRepository.findById(id).orElse(null);
 
         if (booking == null) {
-            throw new RuntimeException("Booking not found");
+            throw new ApiException("Booking not found");
         }
 
         booking.setStatus(status);
