@@ -1,7 +1,7 @@
 // =============================
 // CONFIG
 // =============================
-const API_BASE = "https://servicenow-fullstack-production.up.railway.app";
+const API_BASE = "https://servicenow-backend-88y5.onrender.com";
 
 
 // =============================
