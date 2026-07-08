@@ -1050,3 +1050,17 @@ textarea {
   }
 
 }
+.cancel-btn {
+  margin-top: 10px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancel-btn:hover {
+  opacity: 0.9;
+}

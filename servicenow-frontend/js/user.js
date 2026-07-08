@@ -10,6 +10,11 @@ let providers = [];
 let currentProviders = [];
 let selectedProvider = null;
 
+// =============================
+// API BASE
+// =============================
+const API_BASE = "https://servicenow-backend-88y5.onrender.com";
+
 
 // =============================
 // FETCH ALL PROVIDERS FROM BACKEND
@@ -36,7 +41,8 @@ async function fetchProviders() {
 // =============================
 function renderServices(serviceArray) {
   let container = document.getElementById("servicesContainer");
-  container.innerHTML = ""
+  container.innerHTML = "";
+
   serviceArray.forEach(service => {
     container.innerHTML += `
       <div class="service-card">
@@ -257,6 +263,16 @@ async function renderMyBookings() {
     }
 
     myBookings.forEach(booking => {
+      let cancelButton = "";
+
+      if (booking.status === "Pending") {
+        cancelButton = `
+          <button class="cancel-btn" onclick="cancelBooking(${booking.id})">
+            Cancel Booking
+          </button>
+        `;
+      }
+
       container.innerHTML += `
         <div class="appointment-card">
           <h3>${booking.service}</h3>
@@ -265,6 +281,7 @@ async function renderMyBookings() {
           <p>⏰ ${booking.time}</p>
           <p>📍 ${booking.address}</p>
           <p class="status">Status: ${booking.status}</p>
+          ${cancelButton}
         </div>
       `;
     });
@@ -273,6 +290,41 @@ async function renderMyBookings() {
     console.error(error);
     container.innerHTML = `<p>Could not load bookings</p>`;
   }
+}
+
+
+// =============================
+// CANCEL BOOKING
+// =============================
+async function cancelBooking(id) {
+  let confirmCancel = confirm("Are you sure you want to cancel this booking?");
+  if (!confirmCancel) return;
+
+  try {
+    let response = await fetch(`${API_BASE}/bookings/${id}`, {
+      method: "DELETE"
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to cancel booking");
+    }
+
+    alert("Booking cancelled successfully");
+    renderMyBookings();
+
+  } catch (error) {
+    console.error(error);
+    alert("Could not cancel booking");
+  }
+}
+
+
+// =============================
+// LOGOUT
+// =============================
+function logout() {
+  localStorage.removeItem("currentUser");
+  window.location.href = "index.html";
 }
 
 

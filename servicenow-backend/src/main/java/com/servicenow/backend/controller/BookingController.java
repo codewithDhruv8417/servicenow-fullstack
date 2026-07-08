@@ -1,7 +1,6 @@
 package com.servicenow.backend.controller;
 
 import com.servicenow.backend.entity.Booking;
-import com.servicenow.backend.exception.ApiException;
 import com.servicenow.backend.repository.BookingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +33,7 @@ public class BookingController {
         return bookingRepository.findByProviderUsername(username);
     }
 
-    // UPDATE BOOKING STATUS
+    // UPDATE BOOKING STATUS (provider side)
     @PutMapping("/bookings/{id}/status")
     public Booking updateBookingStatus(
             @PathVariable Long id,
@@ -43,10 +42,23 @@ public class BookingController {
         Booking booking = bookingRepository.findById(id).orElse(null);
 
         if (booking == null) {
-            throw new ApiException("Booking not found");
+            throw new RuntimeException("Booking not found");
         }
 
         booking.setStatus(status);
         return bookingRepository.save(booking);
+    }
+
+    // CUSTOMER CANCEL BOOKING
+    @DeleteMapping("/bookings/{id}")
+    public String cancelBooking(@PathVariable Long id) {
+        Booking booking = bookingRepository.findById(id).orElse(null);
+
+        if (booking == null) {
+            throw new RuntimeException("Booking not found");
+        }
+
+        bookingRepository.deleteById(id);
+        return "Booking cancelled successfully";
     }
 }
