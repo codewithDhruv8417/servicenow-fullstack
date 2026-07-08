@@ -29,24 +29,27 @@ public class UserController {
 
     // LOGIN
     @PostMapping("/login")
-    public User login(@RequestBody User loginUser) {
+public User login(@RequestBody User loginUser) {
 
-        User user = userRepository.findByUsername(loginUser.getUsername());
+    User user = userRepository.findByUsername(loginUser.getUsername());
 
-        if (user == null) {
-            throw new RuntimeException("User not found");
-        }
-
-        if (!user.getPassword().equals(loginUser.getPassword())) {
-            throw new RuntimeException("Invalid password");
-        }
-
-        if (!user.getRole().equalsIgnoreCase(loginUser.getRole())) {
-            throw new RuntimeException("Invalid role selected");
-        }
-
-        return user;
+    if (user == null) {
+        throw new RuntimeException("User not found");
     }
+
+    if (!user.getPassword().equals(loginUser.getPassword())) {
+        throw new RuntimeException("Invalid password");
+    }
+
+    if (!user.getRole().equalsIgnoreCase(loginUser.getRole())) {
+        throw new RuntimeException("Invalid role selected");
+    }
+
+    // Remove password before sending response
+    user.setPassword(null);
+
+    return user;
+}
 
     // GET ALL PROVIDERS
     @GetMapping("/providers")
