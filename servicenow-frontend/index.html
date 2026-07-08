@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ServiceNow</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="main">
+
+  <!-- LEFT -->
+  <div class="left">
+
+    <h1>ServiceNow</h1>
+
+    <h2>
+      Quality Services,<br>
+      Right When <span>You Need Them</span>
+    </h2>
+
+    <p>
+      Find trusted professionals anytime, anywhere.
+    </p>
+
+  </div>
+
+
+  <!-- RIGHT -->
+  <div class="right">
+
+    <div class="login-box">
+
+      <!-- LOGIN -->
+      <h2>Login</h2>
+
+      <input id="loginUsername" placeholder="Username">
+
+      <input
+        id="loginPassword"
+        type="password"
+        placeholder="Password"
+      >
+
+      <select id="roleSelect">
+
+        <option value="customer">
+          Customer
+        </option>
+
+        <option value="provider">
+          Service Provider
+        </option>
+
+      </select>
+
+      <button onclick="login()">
+        Log In
+      </button>
+
+      <p class="signup">
+        New here?
+        <span onclick="toggleSignup()">
+          Sign up
+        </span>
+      </p>
+
+
+      <!-- SIGNUP -->
+      <div id="signupBox" class="hidden">
+
+        <h2>Sign Up</h2>
+
+        <input
+          id="signupName"
+          placeholder="Full Name"
+        >
+
+        <input
+          id="signupPhone"
+          placeholder="Phone Number"
+        >
+
+        <input
+          id="signupUsername"
+          placeholder="Username"
+        >
+
+        <input
+          id="signupPassword"
+          type="password"
+          placeholder="Password"
+        >
+
+        <select id="role" onchange="checkRole()">
+
+          <option value="customer">
+            Customer
+          </option>
+
+          <option value="provider">
+            Service Provider
+          </option>
+
+        </select>
+
+
+        <!-- PROVIDER EXTRA FIELDS -->
+        <div id="serviceField" class="hidden">
+
+          <select id="serviceType">
+
+            <option>Plumber</option>
+            <option>Electrician</option>
+            <option>AC Repair</option>
+            <option>Painter</option>
+            <option>Cleaning</option>
+            <option>Carpenter</option>
+
+          </select>
+
+          <input
+            id="providerExperience"
+            placeholder="Experience (Years)"
+          >
+
+          <input
+            id="providerPrice"
+            placeholder="Starting Price"
+          >
+
+          <input
+            id="providerLocation"
+            placeholder="Location"
+          >
+
+          <input
+            id="providerImage"
+            placeholder="Profile Image URL"
+          >
+
+          <textarea
+            id="providerAbout"
+            placeholder="About Your Service"
+          ></textarea>
+
+        </div>
+
+        <button onclick="signup()">
+          Sign Up
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

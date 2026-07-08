@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Provider Dashboard</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+  <div class="logo">
+    ServiceNow
+  </div>
+
+  <div class="nav-right">
+
+    <span id="providerWelcome"></span>
+
+    <button
+      class="logout-btn"
+      onclick="logout()"
+    >
+      Logout
+    </button>
+
+  </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+<section class="hero provider-hero">
+
+  <div class="hero-content">
+
+    <h1>
+      Manage Your Service Business
+    </h1>
+
+    <p>
+      View appointments, manage bookings,
+      and grow your professional profile.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- PROVIDER PROFILE -->
+<section class="section">
+
+  <div class="provider-profile-card">
+
+    <img
+      id="providerImage"
+      src=""
+    >
+
+    <div class="provider-profile-info">
+
+      <h2 id="providerName"></h2>
+
+      <p id="providerService"></p>
+
+      <p id="providerExperience"></p>
+
+      <p id="providerLocation"></p>
+
+      <p id="providerAbout"></p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- APPOINTMENTS -->
+<section class="section">
+
+  <div class="section-top">
+
+    <h2>
+      Your Appointments
+    </h2>
+
+  </div>
+
+  <div
+    id="appointmentsContainer"
+    class="provider-grid"
+  ></div>
+
+</section>
+
+
+<script src="js/script.js"></script>
+<script src="js/provider.js"></script>
+
+</body>
+</html>

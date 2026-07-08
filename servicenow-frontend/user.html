@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Customer Dashboard</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+<!-- NAVBAR -->
+<nav class="navbar">
+
+  <div class="logo">
+    ServiceNow
+  </div>
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="Search any service..."
+      onkeyup="searchServices()"
+    >
+
+  </div>
+
+  <div class="nav-right">
+
+    <span id="welcome"></span>
+
+    <button
+      class="logout-btn"
+      onclick="logout()"
+    >
+      Logout
+    </button>
+
+  </div>
+
+</nav>
+
+
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="hero-content">
+
+    <h1>
+      Trusted Home Services At Your Doorstep
+    </h1>
+
+    <p>
+      Find trusted professionals for all your home needs.
+    </p>
+
+    <button class="hero-btn">
+      Explore Services
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- SERVICES -->
+<section class="section">
+
+  <div class="section-top">
+
+    <h2>
+      Popular Services
+    </h2>
+
+    <select
+      id="sortSelect"
+      onchange="sortServices()"
+    >
+
+      <option value="default">
+        Sort By
+      </option>
+
+      <option value="az">
+        A-Z
+      </option>
+
+      <option value="za">
+        Z-A
+      </option>
+
+    </select>
+
+  </div>
+
+  <div
+    id="servicesContainer"
+    class="service-grid"
+  ></div>
+
+</section>
+
+
+
+<!-- PROVIDERS -->
+<section class="section">
+
+  <div class="section-top">
+
+    <h2 id="providerTitle">
+      Providers
+    </h2>
+
+    <select
+      id="providerSort"
+      onchange="sortProviders()"
+    >
+
+      <option value="default">
+        Sort Providers
+      </option>
+
+      <option value="rating">
+        Highest Rated
+      </option>
+
+      <option value="priceLow">
+        Price Low To High
+      </option>
+
+      <option value="priceHigh">
+        Price High To Low
+      </option>
+
+    </select>
+
+  </div>
+
+  <div
+    id="providerList"
+    class="provider-grid"
+  ></div>
+
+</section>
+
+
+
+<!-- MY BOOKINGS -->
+<section class="section">
+
+  <div class="section-top">
+
+    <h2>
+      My Bookings
+    </h2>
+
+  </div>
+
+  <div
+    id="myBookingsContainer"
+    class="provider-grid"
+  ></div>
+
+</section>
+
+
+
+<!-- BOOKING MODAL -->
+<div id="bookingModal" class="modal hidden">
+
+  <div class="modal-content">
+
+    <div class="modal-top">
+
+      <h2>
+        Book Service
+      </h2>
+
+      <span
+        class="close-btn"
+        onclick="closeBookingModal()"
+      >
+        ×
+      </span>
+
+    </div>
+
+
+    <input
+      type="date"
+      id="bookingDate"
+    >
+
+    <input
+      type="time"
+      id="bookingTime"
+    >
+
+    <textarea
+      id="bookingAddress"
+      placeholder="Enter Your Address"
+    ></textarea>
+
+    <button onclick="confirmBooking()">
+
+      Confirm Booking
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<script src="js/data.js"></script>
+<script src="js/script.js"></script>
+<script src="js/user.js"></script>
+
+</body>
+</html>
